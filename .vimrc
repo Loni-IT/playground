@@ -69,7 +69,7 @@ endif
 set laststatus=2
 
 "ステータスラインにファイル名表示
-set statusline+=%<%F\ 
+set statusline=%<%F\ 
 
 "ステータスラインにファイルフォーマット表示
 set statusline+=[%{&fileformat}]
