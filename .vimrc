@@ -105,10 +105,10 @@ set wildmenu
 " 挿入モード終了時に IME 状態を保存しない
 "inoremap <silent> <Esc> <Esc>
 "inoremap <silent> <C-[> <Esc>
-" 「日本語入力固定モード」切り替えキー
+"「日本語入力固定モード」切り替えキー
 "inoremap <silent> <C-j> <C-^>
 
-"[TeraTerm用] 挿入モードから抜けた時に IME をオフ、再度挿入モードに入った時に IME 状態を元に戻す
+"挿入モードから抜けた時に IME をオフ、再度挿入モードに入った時に IME 状態を元に戻す(TeraTerm向け)
 let &t_SI .= "\e[<r"
 let &t_EI .= "\e[<s\e[<0t"
 let &t_te .= "\e[<0t\e[<s"
