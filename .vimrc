@@ -123,5 +123,5 @@ set nosmartindent
 set nocindent
 
 "カラースキーム
-set colorscheme koehler
+colorscheme koehler
 
