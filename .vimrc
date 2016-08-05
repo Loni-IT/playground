@@ -117,3 +117,11 @@ set timeoutlen=100
 "画面再描画時に検索の強調表示を無効化
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+" 自動的にインデントしない
+set noautoindent
+set nosmartindent
+set nocindent
+
+"カラースキーム
+set colorscheme koehler
+
