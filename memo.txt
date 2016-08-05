@@ -1,0 +1,57 @@
+@@@ git config
+
+git config --global user.name "name"
+git config --global user.email "email"
+git config --global color.ui "auto"
+git config --global core.editor 'vim -c "set fenc=utf-8"'
+git config --global core.quotepath false
+git config --global http.postBuffer 104857600
+
+
+@@@ Cygwin64 - Teraterm 連携
+
+http://changineer.info/network/ccie_tools/windows_terminal_teraterm#51
+
+2013/12/28時点で、最新のTera Term / Cygwinの組み合わせで Tera TermからCygwinを起動させることができず。
+Tera Termに同梱されている"cygterm.exe"が32bitでコンパイルされているためらしい。
+公式マニュアルにも記載あり？
+
+Tera Termに同梱されているcygterm+.tar.gzというファイルを適当なディレクトリへ移動、展開。
+
+$ cd
+$ mkdir archive
+$ cp -p /cygdrive/c/usr/local/teraterm-4.80/cygterm+.tar.gz archive/
+$ cd archive
+$ tar xzvf cygterm+.tar.gz
+
+展開したファイルを64bit環境でコンパイル。
+この時、-mno-cygwin等のエラーが発生するが、無視。
+
+$ cd ~/archive
+$ make
+ x86_64-w64-mingw32-windres -O coff -o cygterm.res cygterm.rc
+ make: x86_64-w64-mingw32-windres: コマンドが見つかりませんでした
+ Makefile:34: recipe for target 'cyglaunch.exe' failed
+ make: *** [cyglaunch.exe] Error 127
+
+作成された"cygterm.exe"をTera Termのインストールディレクトリへ移動。
+
+
+@@@ Cygwin64 - Teraterm で git log などすると「cygwin terminal is not fully functional」が出る。
+
+export "TERM=cygwin" >> ~/.bashrc
+
+
+@@@ apt-cyg
+
+wget
+bzip2
+gawk
+vim
+
+export http_proxy=http://XXX.XXX.XXX.XXX:XXXX
+wget http://apt-cyg.googlecode.com/svn/trunk/apt-cyg 
+mv apt-cyg  /usr/bin
+chmod +x /usr/bin/apt-cyg
+apt-cyg -m http://ftp.iij.ad.jp/pub/cygwin/ update
+
